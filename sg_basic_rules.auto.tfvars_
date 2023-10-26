@@ -1,0 +1,45 @@
+default_security_groups = {
+  "default_sg_linux" = {
+    "description" = "Default Linux SG"
+    "rules" = {
+      "ingress" = [
+        {
+          "description" = "Default 22/tcp",
+          "from_port"   = 22,
+          "to_port"     = 22,
+          "protocol"    = "tcp",
+          "cidr_blocks" = ["0.0.0.0/0"],
+          "ipv6_cidr_blocks" = [],
+          "prefix_list_ids" = [],
+          "security_groups" = [],
+          "self" = null
+        },
+        {
+          "description" = "Default all from self",
+          "from_port"   = 22,
+          "to_port"     = 22,
+          "protocol"    = "tcp",
+          "cidr_blocks" = [],
+          "ipv6_cidr_blocks" = [],
+          "prefix_list_ids" = [],
+          "security_groups" = [],
+          "self"        = true
+        }
+      ],
+      "egress" = [
+        {
+          "type"        = "egress",
+          "description" = "Default outbound traffic",
+          "from_port"   = 0,
+          "to_port"     = 0,
+          "protocol"    = "-1",
+          "cidr_blocks" = ["0.0.0.0/0"],
+          "ipv6_cidr_blocks" = [],
+          "prefix_list_ids" = [],
+          "security_groups" = [],
+          "self" = null
+        }
+      ]
+    }
+  }
+}
